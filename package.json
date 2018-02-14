@@ -1,0 +1,14 @@
+{
+  "name": "music-alarm",
+  "version": "1.0.0",
+  "description": "Wake up with music",
+  "main": "music-alarm.js",
+  "scripts": {
+    "start": "node music-alarm.js"
+  },
+  "author": "geekrodion",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^1.0.0"
+  }
+}
