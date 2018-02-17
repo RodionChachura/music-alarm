@@ -1,10 +1,7 @@
 const puppeteer = require('puppeteer')
 
-
-// puppeteer.defaultArgs(['--no-sandbox', '--disable-setuid-sandbox'])
-
 module.exports = async url => {
-  const browser = await puppeteer.launch({headless: false})
+  const browser = await puppeteer.launch({ headless: false })
   const page = await browser.newPage()
   await page.goto(url)
 
