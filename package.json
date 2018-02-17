@@ -9,6 +9,7 @@
   "author": "geekrodion",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^1.0.0"
+    "puppeteer": "^1.0.0",
+    "shelljs": "^0.8.1"
   }
 }

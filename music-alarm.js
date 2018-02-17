@@ -1,16 +1,10 @@
-const puppeteer = require('puppeteer');
+const shell = require('shelljs')
 
-(async () => {
-  const browser = await puppeteer.launch({headless: false})
-  const page = await browser.newPage()
-  await page.goto('https://music.yandex.ru/album/2214/track/17307')
+const playMusic = require('./play-music')
 
-  const playButton = await page.$('.button-play')
-  playButton.click()
+const time = process.argv[2] || '8:0'
+const [hours, minutes] = time.split(':').map(i => parseInt(i, 10))
+const url = process.argv[3] || 'https://music.yandex.ru/album/2214/track/17307'
 
-  const shuffleButton = await page.$('.player-controls__btn_shuffle')
-  shuffleButton.click()
+shell.exec(`sudo rtcwake -m mem -s ${(hours * 60 + minutes) * 60} && node -e "require('./play-music')('${url}')"`)
 
-  const nextButton = await page.$('.player-controls__btn_next')
-  nextButton.click()
-})()
